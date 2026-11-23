@@ -1,0 +1,7 @@
+[tasks.regenerate]
+description = "Regenerate the models from the latest Kubernetes 1.38.x spec with the pinned kubex-codegen"
+run = """
+uv run --with "kubex-codegen @ git+https://github.com/kubex-py/kubex-codegen@$(tr -d '[:space:]' < .kubex-codegen-version)" \
+  kubex-codegen regenerate --k8s-version 1.38 --package-dir .
+uv lock
+"""
