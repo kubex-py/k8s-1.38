@@ -27,6 +27,23 @@ classifiers = [
   "Programming Language :: Python :: Free Threading :: 2 - Beta",
 ]
 
+[project.urls]
+Homepage = "https://github.com/kubex-py/k8s-1.38"
+Repository = "https://github.com/kubex-py/k8s-1.38.git"
+Issues = "https://github.com/kubex-py/k8s-1.38/issues"
+Changelog = "https://github.com/kubex-py/k8s-1.38/blob/main/CHANGELOG.md"
+Documentation = "https://kubex.codemageddon.me/"
+
+[dependency-groups]
+dev = [
+    # the ruff and mypy versions kubex-codegen formats and checks the models with
+    "mypy==2.4.0",
+    "ruff==0.15.22",
+    "pre-commit>=4.0.1",
+    "pytest>=8.3.3",
+    "types-pyyaml>=6.0.12.20240917",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -38,10 +55,13 @@ only-include = ["kubex"]
 packages = ["kubex"]
 
 [tool.mypy]
+strict = true
 namespace_packages = true
 explicit_package_bases = true
 
-[tool.ty.environment]
-# Point ty to the workspace venv so it can resolve pydantic, kubex_core, etc.
-# when editing generated files directly.
-python = "../../.venv"
+# kubex-codegen formats the models with these settings; keep them in sync with it.
+[tool.ruff]
+target-version = "py311"
+
+[tool.ruff.lint.isort]
+known-first-party = ["kubex", "kubex_core"]
