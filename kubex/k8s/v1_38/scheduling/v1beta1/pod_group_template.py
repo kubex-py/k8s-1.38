@@ -29,7 +29,7 @@ class PodGroupTemplate(BaseK8sModel):
     preemption_policy: str | None = Field(
         default=None,
         alias="preemptionPolicy",
-        description="preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable. This field is available only when the PodGroupPreemptionPolicy feature gate is enabled.",
+        description="preemptionPolicy is the Policy for preempting pods/podgroups with lower priority. One of Never, PreemptLowerPriority. This field is immutable.",
     )
     priority: int | None = Field(
         default=None,

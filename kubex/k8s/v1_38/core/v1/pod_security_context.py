@@ -66,7 +66,7 @@ class PodSecurityContext(BaseK8sModel):
     supplemental_groups_policy: str | None = Field(
         default=None,
         alias="supplementalGroupsPolicy",
-        description='supplementalGroupsPolicy defines how supplemental groups of the first container processes are calculated. Valid values are "Merge" and "Strict". If not specified, "Merge" is used. (Alpha) Using the field requires the SupplementalGroupsPolicy feature gate to be enabled and the container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.',
+        description='supplementalGroupsPolicy defines how supplemental groups of the first container processes are calculated. Valid values are "Merge" and "Strict". If not specified, "Merge" is used. The container runtime must implement support for this feature. Note that this field cannot be set when spec.os.name is windows.',
     )
     sysctls: list[Sysctl] | None = Field(
         default=None,

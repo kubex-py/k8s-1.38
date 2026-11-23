@@ -162,7 +162,7 @@ class PodSpec(BaseK8sModel):
     resources: ResourceRequirements | None = Field(
         default=None,
         alias="resources",
-        description='resources is the total amount of CPU and Memory resources required by all containers in the pod. It supports specifying Requests and Limits for "cpu", "memory" and "hugepages-" resource names only. ResourceClaims are not supported. This field enables fine-grained control over resource allocation for the entire pod, allowing resource sharing among containers in a pod. This is an alpha field and requires enabling the PodLevelResources feature gate.',
+        description='resources is the total amount of CPU and Memory resources required by all containers in the pod. It supports specifying Requests and Limits for "cpu", "memory" and "hugepages-" resource names only. ResourceClaims are not supported. This field enables fine-grained control over resource allocation for the entire pod, allowing resource sharing among containers in a pod. If a limit is not specified at the pod level, the pod is limited by the aggregate of its container limits: - For cpu and memory, the aggregate is used only if every init and regular container specifies a limit; otherwise the pod is not limited for that resource. - For hugepages, the container limits are summed and unspecified values are treated as 0. More details: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/',
     )
     restart_policy: str | None = Field(
         default=None,
@@ -187,7 +187,7 @@ class PodSpec(BaseK8sModel):
     scheduling_group: PodSchedulingGroup | None = Field(
         default=None,
         alias="schedulingGroup",
-        description="schedulingGroup provides a reference to the immediate scheduling runtime grouping object that this Pod belongs to. This field is used by the scheduler to identify the group and apply the correct group scheduling policies. The association with a group also impacts other lifecycle aspects of a Pod that are relevant in a wider context of scheduling like preemption, resource attachment, etc. If not specified, the Pod is treated as a single unit in all of these aspects. The group object referenced by this field may not exist at the time the Pod is created. This field is immutable, but a group object with the same name may be recreated with different policies. Doing this during pod scheduling may result in the placement not conforming to the expected policies.",
+        description="schedulingGroup provides a reference to the immediate scheduling runtime grouping object that this Pod belongs to. This field is used by the scheduler to identify the group and apply the correct group scheduling policies. The association with a group also impacts other lifecycle aspects of a Pod that are relevant in a wider context of scheduling like preemption, resource attachment, etc. If not specified, the Pod is treated as a single unit in all of these aspects. The group object referenced by this field may not exist at the time the Pod is created. This field is immutable. The scheduler cannot distinguish PodGroup runtime instances that reuse the same namespace and name. Controllers should use a new PodGroup name for each runtime instance. Reusing a name for a PodGroup with different policies may result in Pod placement not conforming to the expected policies.",
     )
     security_context: PodSecurityContext | None = Field(
         default=None,

@@ -11,7 +11,7 @@ from kubex_core.models.types import NullAsEmptyList
 
 
 class EndpointsList(ListEntity[Endpoints]):
-    """EndpointsList is a list of endpoints. Deprecated: This API is deprecated in v1.33+."""
+    """EndpointsList is a list of endpoints."""
 
     api_version: Literal["v1"] = Field(
         default="v1",

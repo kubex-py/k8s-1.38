@@ -11,7 +11,7 @@ from kubex_core.models.types import NullAsEmptyList
 
 
 class ComponentStatusList(ListEntity[ComponentStatus]):
-    """Status of all the conditions for the component as a list of ComponentStatus objects. Deprecated: This API is deprecated in v1.19+"""
+    """Status of all the conditions for the component as a list of ComponentStatus objects."""
 
     api_version: Literal["v1"] = Field(
         default="v1",

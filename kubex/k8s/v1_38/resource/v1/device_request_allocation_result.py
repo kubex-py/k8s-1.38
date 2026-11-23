@@ -16,17 +16,17 @@ class DeviceRequestAllocationResult(BaseK8sModel):
     binding_conditions: list[str] | None = Field(
         default=None,
         alias="bindingConditions",
-        description="bindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation. This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+        description="bindingConditions contains a copy of the BindingConditions from the corresponding ResourceSlice at the time of allocation.",
     )
     binding_failure_conditions: list[str] | None = Field(
         default=None,
         alias="bindingFailureConditions",
-        description="bindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation. This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gates.",
+        description="bindingFailureConditions contains a copy of the BindingFailureConditions from the corresponding ResourceSlice at the time of allocation.",
     )
     consumed_capacity: dict[str, Quantity] | None = Field(
         default=None,
         alias="consumedCapacity",
-        description="consumedCapacity tracks the amount of capacity consumed per device as part of the claim request. The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device’s requestPolicy if applicable (i.e., may not be less than the requested amount). The total consumed capacity for each device must not exceed the DeviceCapacity's Value. This field is populated only for devices that allow multiple allocations. All capacity entries are included, even if the consumed amount is zero. The domain prefix in the capacity name may be omitted if it is the same as the driver name.",
+        description="consumedCapacity tracks the amount of capacity consumed per device as part of the claim request. The consumed amount may differ from the requested amount: it is rounded up to the nearest valid value based on the device’s requestPolicy if applicable (i.e., may not be less than the requested amount). The total consumed capacity for each device must not exceed the DeviceCapacity's Value. This field is populated only for devices that allow multiple allocations. All capacity entries are included, even if the consumed amount is zero. The domain prefix in the capacity name may be omitted if it is the same as the driver name. ConsumedCapacity may have at most 32 entries. The values must not be negative.",
     )
     device: str = Field(
         ...,

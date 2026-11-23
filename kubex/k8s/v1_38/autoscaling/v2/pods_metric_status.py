@@ -8,13 +8,13 @@ from kubex_core.models.base import BaseK8sModel
 class PodsMetricStatus(BaseK8sModel):
     """PodsMetricStatus indicates the current value of a metric describing each pod in the current scale target (for example, transactions-processed-per-second)."""
 
-    current: MetricValueStatus = Field(
-        ...,
+    current: MetricValueStatus | None = Field(
+        default=None,
         alias="current",
         description="current contains the current value for the given metric",
     )
-    metric: MetricIdentifier = Field(
-        ...,
+    metric: MetricIdentifier | None = Field(
+        default=None,
         alias="metric",
         description="metric identifies the target metric by name and selector",
     )

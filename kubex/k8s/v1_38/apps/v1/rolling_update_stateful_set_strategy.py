@@ -9,7 +9,7 @@ class RollingUpdateStatefulSetStrategy(BaseK8sModel):
     max_unavailable: int | str | None = Field(
         default=None,
         alias="maxUnavailable",
-        description="maxUnavailable is the maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of desired pods (ex: 10%). Absolute number is calculated from percentage by rounding up. This can not be 0. Defaults to 1. This field is beta-level and is enabled by default. The field applies to all pods in the range 0 to Replicas-1. That means if there is any unavailable pod in the range 0 to Replicas-1, it will be counted towards MaxUnavailable. This setting might not be effective for the OrderedReady podManagementPolicy. That policy ensures pods are created and become ready one at a time.",
+        description="maxUnavailable is the maximum number of pods that can be unavailable during the update. Value can be an absolute number (ex: 5) or a percentage of pods in the update range (ex: 10%). Absolute number is calculated from percentage by rounding down. This can not be 0. Defaults to 1. This field is beta-level and is enabled by default. The field applies only to pods in the update range (ordinals greater than or equal to Partition, up to Replicas-1). Unavailable pods below Partition are not counted towards MaxUnavailable. When MaxUnavailable is a percentage, it is calculated from the number of pods in that update range (Replicas - Partition), not from all replicas. This setting might not be effective for the OrderedReady podManagementPolicy. That policy ensures pods are created and become ready one at a time.",
     )
     partition: int | None = Field(
         default=None,

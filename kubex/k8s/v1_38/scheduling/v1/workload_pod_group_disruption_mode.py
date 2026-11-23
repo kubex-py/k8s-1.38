@@ -1,9 +1,9 @@
 from pydantic import Field
 
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_all_disruption_mode import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_all_disruption_mode import (
     WorkloadPodGroupAllDisruptionMode,
 )
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_single_disruption_mode import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_single_disruption_mode import (
     WorkloadPodGroupSingleDisruptionMode,
 )
 from kubex_core.models.base import BaseK8sModel

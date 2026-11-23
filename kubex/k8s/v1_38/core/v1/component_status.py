@@ -10,7 +10,7 @@ from kubex_core.models.resource_config import ResourceConfig, Scope
 
 
 class ComponentStatus(ClusterScopedEntity):
-    """ComponentStatus (and ComponentStatusList) holds the cluster validation info. Deprecated: This API is deprecated in v1.19+"""
+    """ComponentStatus (and ComponentStatusList) holds the cluster validation info."""
 
     __RESOURCE_CONFIG__: ClassVar[ResourceConfig["ComponentStatus"]] = ResourceConfig[
         "ComponentStatus"

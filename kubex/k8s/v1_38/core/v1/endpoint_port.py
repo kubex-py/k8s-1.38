@@ -4,7 +4,7 @@ from kubex_core.models.base import BaseK8sModel
 
 
 class EndpointPort(BaseK8sModel):
-    """EndpointPort is a tuple that describes a single port. Deprecated: This API is deprecated in v1.33+."""
+    """EndpointPort is a tuple that describes a single port."""
 
     app_protocol: str | None = Field(
         default=None,

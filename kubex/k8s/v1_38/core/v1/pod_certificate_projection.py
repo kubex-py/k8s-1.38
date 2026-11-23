@@ -39,7 +39,7 @@ class PodCertificateProjection(BaseK8sModel):
     user: int | None = Field(
         default=None,
         alias="user",
-        description="user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+        description="user is Optional: The owner UID of the created file. If specified, the item-level user field takes precedence over defaultUser. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
     )
     user_annotations: dict[str, str] | None = Field(
         default=None,

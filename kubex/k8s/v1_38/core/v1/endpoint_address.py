@@ -5,7 +5,7 @@ from kubex_core.models.base import BaseK8sModel
 
 
 class EndpointAddress(BaseK8sModel):
-    """EndpointAddress is a tuple that describes single IP address. Deprecated: This API is deprecated in v1.33+."""
+    """EndpointAddress is a tuple that describes single IP address."""
 
     hostname: str | None = Field(
         default=None, alias="hostname", description="The Hostname of this endpoint"

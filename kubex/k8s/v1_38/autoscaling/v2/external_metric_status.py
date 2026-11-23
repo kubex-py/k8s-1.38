@@ -8,13 +8,13 @@ from kubex_core.models.base import BaseK8sModel
 class ExternalMetricStatus(BaseK8sModel):
     """ExternalMetricStatus indicates the current value of a global metric not associated with any Kubernetes object."""
 
-    current: MetricValueStatus = Field(
-        ...,
+    current: MetricValueStatus | None = Field(
+        default=None,
         alias="current",
         description="current contains the current value for the given metric",
     )
-    metric: MetricIdentifier = Field(
-        ...,
+    metric: MetricIdentifier | None = Field(
+        default=None,
         alias="metric",
         description="metric identifies the target metric by name and selector",
     )
