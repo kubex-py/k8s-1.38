@@ -16,7 +16,7 @@ class ResourceRequirements(BaseK8sModel):
     limits: dict[str, Quantity] | None = Field(
         default=None,
         alias="limits",
-        description="limits describes the maximum amount of compute resources allowed. More info: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
+        description="limits describes the maximum amount of compute resources allowed. For kubelet cgroup enforcement: - cpu and memory: a limit of 0 is treated the same as an unspecified limit. If neither the container nor the pod specifies a limit, the resource is not limited. - hugepages: an unspecified limit is treated the same as a limit of 0. More details: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/",
     )
     requests: dict[str, Quantity] | None = Field(
         default=None,

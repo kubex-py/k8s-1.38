@@ -20,12 +20,12 @@ class StorageHealthCondition(BaseK8sModel):
     message: str | None = Field(
         default=None,
         alias="message",
-        description="message is a human-readable description. Maximum permitted length of a message is 1024 characters.",
+        description="message is a human-readable description. Maximum permitted length of a message is 1024 bytes.",
     )
     reason: str = Field(
         ...,
         alias="reason",
-        description="reason is a brief CamelCase machine-parseable reason. Maximum permitted length of a reason is 256 characters.",
+        description="reason is a brief CamelCase machine-parseable reason. Maximum permitted length of a reason is 256 bytes.",
     )
     status: str = Field(
         ...,

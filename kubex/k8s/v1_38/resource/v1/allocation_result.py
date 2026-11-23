@@ -12,7 +12,7 @@ class AllocationResult(BaseK8sModel):
     allocation_timestamp: Time | None = Field(
         default=None,
         alias="allocationTimestamp",
-        description="allocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown. This is a beta field and requires enabling the DRADeviceBindingConditions and DRAResourceClaimDeviceStatus feature gate.",
+        description="allocationTimestamp stores the time when the resources were allocated. This field is not guaranteed to be set, in which case that time is unknown.",
     )
     devices: DeviceAllocationResult | None = Field(
         default=None,

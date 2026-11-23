@@ -1,15 +1,15 @@
 from pydantic import Field
 
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_disruption_mode import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_disruption_mode import (
     WorkloadPodGroupDisruptionMode,
 )
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_resource_claim import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_resource_claim import (
     WorkloadPodGroupResourceClaim,
 )
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_scheduling_constraints import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_scheduling_constraints import (
     WorkloadPodGroupSchedulingConstraints,
 )
-from kubex.k8s.v1_38.scheduling.v1alpha3.workload_pod_group_scheduling_policy import (
+from kubex.k8s.v1_38.scheduling.v1.workload_pod_group_scheduling_policy import (
     WorkloadPodGroupSchedulingPolicy,
 )
 from kubex_core.models.base import BaseK8sModel

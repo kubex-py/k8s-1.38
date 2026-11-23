@@ -27,11 +27,11 @@ class HorizontalPodAutoscalerCondition(BaseK8sModel):
         alias="reason",
         description="reason is the reason for the condition's last transition.",
     )
-    status: str = Field(
-        ...,
+    status: str | None = Field(
+        default=None,
         alias="status",
-        description="status is the status of the condition (True, False, Unknown)",
+        description="status is the status of the condition, should be one of True, False, Unknown",
     )
-    type_: str = Field(
-        ..., alias="type", description="type describes the current condition"
+    type_: str | None = Field(
+        default=None, alias="type", description="type describes the current condition"
     )

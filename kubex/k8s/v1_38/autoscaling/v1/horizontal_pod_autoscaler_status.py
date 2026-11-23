@@ -12,13 +12,13 @@ class HorizontalPodAutoscalerStatus(BaseK8sModel):
         alias="currentCPUUtilizationPercentage",
         description="currentCPUUtilizationPercentage is the current average CPU utilization over all pods, represented as a percentage of requested CPU, e.g. 70 means that an average pod is using now 70% of its requested CPU.",
     )
-    current_replicas: int = Field(
-        ...,
+    current_replicas: int | None = Field(
+        default=None,
         alias="currentReplicas",
         description="currentReplicas is the current number of replicas of pods managed by this autoscaler.",
     )
-    desired_replicas: int = Field(
-        ...,
+    desired_replicas: int | None = Field(
+        default=None,
         alias="desiredReplicas",
         description="desiredReplicas is the desired number of replicas of pods managed by this autoscaler.",
     )

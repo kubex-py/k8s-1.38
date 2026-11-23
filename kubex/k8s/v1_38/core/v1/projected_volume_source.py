@@ -15,7 +15,7 @@ class ProjectedVolumeSource(BaseK8sModel):
     default_user: int | None = Field(
         default=None,
         alias="defaultUser",
-        description="defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Alpha) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
+        description="defaultUser is Optional: The owner UID of the created files by default. The defaultUser field is only used as a fallback when the item-level user field is unset. (Beta) This field requires the AtomicWriteVolumeUserFields feature gate to be enabled.",
     )
     sources: list[VolumeProjection] | None = Field(
         default=None,

@@ -26,8 +26,8 @@ class HorizontalPodAutoscalerStatus(BaseK8sModel):
         alias="currentReplicas",
         description="currentReplicas is current number of replicas of pods managed by this autoscaler, as last seen by the autoscaler.",
     )
-    desired_replicas: int = Field(
-        ...,
+    desired_replicas: int | None = Field(
+        default=None,
         alias="desiredReplicas",
         description="desiredReplicas is the desired number of replicas of pods managed by this autoscaler, as last calculated by the autoscaler.",
     )
